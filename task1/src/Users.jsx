@@ -1,24 +1,22 @@
 import React from 'react';
-import { Link, Routes, Route, useMatch, useResolvedPath } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import User from './User';
 
 const Users = () => {
-  const match = useResolvedPath('');
-
   return (
     <div className="page__content">
       <h1>Users</h1>
       <ul className="navigation">
         <li className="navigation__item">
-          <Link to={`${match.pathname}/github`}>Github</Link>
+          <Link to="github">Github</Link>
         </li>
         <li className="navigation__item">
-          <Link to={`${match.pathname}/facebook`}>Facebook</Link>
+          <Link to="facebook">Facebook</Link>
         </li>
       </ul>
       <Routes>
-        <Route path={`${match.pathname}/:userId`} element={<User />} />
-        <Route path={match.pathname} element={<span>Select a user please</span>} />
+        <Route path=":userId" element={<User />} />
+        <Route index element={<span>Select a user please</span>} />
       </Routes>
     </div>
   );

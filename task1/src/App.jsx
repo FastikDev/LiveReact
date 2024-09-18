@@ -16,7 +16,7 @@ const App = () => (
       </ul>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/users" element={<Users />} />
+        <Route path="/users/*" element={<Users />} /> {/* Обратите внимание на "/*" */}
       </Routes>
     </BrowserRouter>
   </div>
